@@ -49,3 +49,7 @@ test('selectionIndex skips placeholder item', () => {
 test('selectionIndex skips placeholder item', () => {
   expect(mask.selectionIndex('1234-5   ')).toEqual(6);
 });
+
+test('selectionIndex handles backspace', () => {
+  expect(mask.selectionIndex('1234-5  ')).toEqual(5);
+});
