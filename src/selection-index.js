@@ -3,8 +3,7 @@ import rawValue from './raw-value';
 const selectionIndex = ({ mask, replacements, value }) => {
   let raw = rawValue({ mask, replacements, value, fullArray: true });
 
-  let backspaces = mask.length - raw.length;
-
+  let backspaces = mask.length > raw.length ? mask.length - raw.length : 0;
   //keep the user input and placeholder (aka items that will always show in the mask)
   return (
     raw.filter((item, index) => {
