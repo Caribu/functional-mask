@@ -1,6 +1,6 @@
 {
   "name": "functional-mask",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "lib/index.js",
   "directories": {
@@ -12,14 +12,14 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@babel/cli": "^7.2.0",
-    "@babel/preset-env": "^7.2.0",
-    "jest": "^23.6.0"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@babel/cli": "^7.2.0",
     "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
+    "jest": "^23.6.0",
     "regenerator-runtime": "^0.13.1"
   }
 }
