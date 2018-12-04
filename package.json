@@ -1,0 +1,25 @@
+{
+  "name": "functional-mask",
+  "version": "0.1.0",
+  "description": "",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "babel src --out-dir lib"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "jest": "^23.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "babel-jest": "^23.6.0",
+    "regenerator-runtime": "^0.13.1"
+  }
+}
