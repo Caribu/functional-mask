@@ -1,20 +1,23 @@
 import createLoopValues from './loop-values';
 
-//loop the values, and return nothing, to get the raw value
+const rawValue = ({ mask, replacements, value, fullArray }) => {
+  //loop the values, and return nothing, to get the raw value
+  let loopValues = createLoopValues(() => '', () => '', true);
 
-let loopValues = createLoopValues(() => '', () => '');
-
-const rawValue = ({ mask, replacements, value }) => {
   let values = value.split('');
   let maskValues = mask.split('');
 
-  let maskValue = maskValues.map((char, index) =>
-    index + 1 <= maskValues.length
-      ? loopValues(values[index], index, maskValues, replacements)
-      : '',
+  let maskValue = values.map((char, index) =>
+    loopValues(char, index, maskValues, replacements),
   );
 
-  return maskValue.join('');
+  if (fullArray) return maskValue;
+
+  return maskValue
+    .map(character => {
+      return character.value;
+    })
+    .join('');
 };
 
 export default rawValue;

@@ -12,22 +12,27 @@ const loopValues = (beforeReplacement, beforePlaceholder) => (
 
   //if it exists, check if valid, otherwise return the masked character
   if (replacement) {
-    if (replacement.valid(char)) return char;
-    return beforeReplacement(replacement.placeholder);
+    if (replacement.valid(char)) return { value: char, type: 'input' };
+    return { value: beforeReplacement(replacement.placeholder), type: 'mask' };
   }
 
   if (isLooped) return '';
 
-  return (
-    beforePlaceholder(placeholderCharacter) +
+  let afterPlaceholder =
     loopValues(beforeReplacement, beforePlaceholder)(
       char,
       index + 1,
       maskValues,
       replacements,
       true,
-    )
-  );
+    ).value || '';
+
+  let beforePlaceholderValue = beforePlaceholder(placeholderCharacter);
+
+  return {
+    value: beforePlaceholderValue + afterPlaceholder,
+    type: 'placeholder',
+  };
 };
 
 export default loopValues;

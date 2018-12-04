@@ -33,3 +33,19 @@ test('full raw value correctly', () => {
 test('raw value from masked value and trims if too long', () => {
   expect(mask.rawValue('5555-66667')).toEqual('55556666');
 });
+
+test('selectionIndex works as expected', () => {
+  expect(mask.selectionIndex('4   -    ')).toEqual(1);
+});
+
+test('selectionIndex works as expected', () => {
+  expect(mask.selectionIndex('123 -    ')).toEqual(3);
+});
+
+test('selectionIndex skips placeholder item', () => {
+  expect(mask.selectionIndex('1234-    ')).toEqual(5);
+});
+
+test('selectionIndex skips placeholder item', () => {
+  expect(mask.selectionIndex('1234-5   ')).toEqual(6);
+});

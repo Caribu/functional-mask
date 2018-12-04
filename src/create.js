@@ -14,7 +14,7 @@ const create = ({ mask, replacements, value }) => {
       : '',
   );
 
-  return maskValue.join('');
+  return maskValue.map(character => character.value).join('');
 };
 
 export default create;
